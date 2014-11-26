@@ -2,22 +2,27 @@
 title: "Condition testing"
 author: "Gaëlle Cordier"
 date: "11/11/2014"
-output: html_document
+output: pdf_document
 ---
 
 ---
+
+```{r figures_path,echo=FALSE,message=FALSE}
+library(knitr)
+opts_chunk$set(fig.path = "pics/") # Set figures path
+```
 
 #### [Diagram](http://en.wikipedia.org/wiki/Receiver_operating_characteristic#Basic_concept): 
 
 ![diagram](pics/BigWikiContingency.png)
 
----
-
 ### In terms of probabilities:
+
+---
 
 ![prob diagram](pics/img015.png)
 
----
+$\\$
 
 #### Marginal probabilities:
 
@@ -25,7 +30,7 @@ output: html_document
 
 ![prob marginal](pics/marginal.png)
 
----
+$\\$
 
 *(being the condition for example a Disease)*
 
@@ -37,7 +42,7 @@ Probability of test outcome positive $\rightarrow p(+)= \text{TP+FP}$
 
 Probability of test outcome negative $\rightarrow p(-)= \text{FN+TN}$
 
----
+$\\$
 
 Where:
 
@@ -47,7 +52,7 @@ $p(D^c)=1-p(D) \equiv \text{FP+TN} =1- \text{(TP+FN)}$
 
 $p(-)=1-p(+) \equiv \text{FN+TN} =1- \text{(TP+FP)}$
 
----
+$\\$
 
 #### Joint probabilities (intersections):
 
@@ -55,7 +60,7 @@ $p(-)=1-p(+) \equiv \text{FN+TN} =1- \text{(TP+FP)}$
 
 ![prob diagram](pics/joint.png)
 
----
+$\\$
 
 Probability of $+$ and $D \rightarrow p(+ \cap D)= \text{TP}$
 
@@ -65,7 +70,7 @@ Probability of $+$ and $D^c \rightarrow p(+ \cap D^c)= \text{FP}$
 
 Probability of $-$ and $D^c \rightarrow p(- \cap D^c)= \text{TN}$
 
----
+$\\$
 
 ####  [Conditional probabilities](https://www.scribd.com/doc/246563489/Conditional-Probability):
 
@@ -73,7 +78,7 @@ Probability of $-$ and $D^c \rightarrow p(- \cap D^c)= \text{TN}$
 
 ![prob diagram](pics/cond.png)
 
----
+$\\$
 
 - <a name=back></a>*Test outcome* conditioned on *condition*
 
@@ -88,7 +93,7 @@ Probability of $-$ given $D^c \rightarrow p(-|D^c)=\frac{p(- \cap D^c)}{p(D^c)}=
 
 Probability of $-$ given $D \rightarrow p(-|D)=\frac{p(- \cap D)}{p(D)}=\frac{\text{FN}}{\text{TP+FN}} \Rightarrow$ **FALSE NEGATIVE RATE** [(**FNR**)](#FNR_down)
 
----
+$\\$
 
 Where:
 
@@ -96,7 +101,7 @@ $p(+|D^c)=1-p(-|D^c) \equiv \frac{\text{FP}}{\text{FP+TN}} = 1 - \frac{\text{TN}
 
 $p(-|D)=1-p(+|D) \equiv \frac{\text{FN}}{\text{TP+FN}} = 1 - \frac{\text{TP}}{\text{TP+FN}} \rightarrow \text{FNR} = 1 - \text{SENSITIVITY}$
 
----
+$\\$
 
 - *Condition* conditioned on *test outcome*
 
@@ -110,29 +115,31 @@ Probability of $D^c$ given $+ \rightarrow p(D^c|+)=\frac{p(+ \cap D^c)}{p(+)}=\f
 
 Probability of $D^c$ given $- \rightarrow p(D^c|-)=\frac{p(- \cap D^c)}{p(-)}=\frac{\text{TN}}{\text{FP+TN}} \Rightarrow$ **NEGATIVE PREDICTIVE VALUE (NPV)**
 
----
+$\\$
 
 #### Bayes' theorem:
+
+---
 
 $p(A|B)=\frac{p(B|A)p(A)}{p(B)} \rightarrow p(A|B)p(B)=p(B|A)p(A)$
 
 Demonstration:
 
----
+$\\$
 
 ![prob diagram](pics/bayes.png)
 
----
+$\\$
 
 $\text{SENSITIVITY}:p(+|D)=\frac{p(+ \cap D)}{p(D)}$
 
 $\text{PPV}:p(D|+)=\frac{p(+ \cap D)}{p(+)}$
 
-$\rightarrow p(+ \cap D)=p(+|D)p(D)=p(D|+)p(+)$ 
+Then:
 
-$\equiv \text{TP}=\text{SENSITIVITY}*\text{PREVALENCE}=\text{PPV}*\text{(TP+FP)}$
+$\rightarrow p(+ \cap D)=p(+|D)p(D)=p(D|+)p(+) \Rightarrow \text{TP}=\text{SENSITIVITY}*\text{PREVALENCE}=\text{PPV}*\text{(TP+FP)}$
 
----
+$\\$
 
 #### Bayes' rule:
 
@@ -146,21 +153,19 @@ Then:
 
 $\rightarrow p(A)=p(A|B)p(B)+p(A|B^c)p(B^c)$
 
----
+$\\$
 
 Demonstration:
 
-$\equiv p(+)=p(+|D)p(D)+p(+|D^c)p(D^c)=p(+ \cap D)+p(+ \cap D^c)$
+$p(+)=p(+|D)p(D)+p(+|D^c)p(D^c)=p(+ \cap D)+p(+ \cap D^c) \Rightarrow \text{TP+FP}=\text{TP+FP}$
 
-$\rightarrow \text{TP+FP}=\text{TP+FP}$
+$\\$
 
----
+Application:
 
-$p(D|+)=\frac{p(+|D)p(D)}{p(+|D)p(D)+p(+|D^c)p(D^c)}$
+$p(D|+)=\frac{p(+|D)p(D)}{p(+|D)p(D)+p(+|D^c)p(D^c)} \Rightarrow \text{PPV}=\frac{\text{SENSITIVITY*PREVALENCE}}{\text{SENSITIVITY*PREVALENCE}+(1-\text{SPECIFICITY})*(1-\text{PREVALENCE})}$
 
-$\equiv \text{PPV}=\frac{\text{SENSITIVITY*PREVALENCE}}{\text{SENSITIVITY*PREVALENCE}+(1-\text{SPECIFICITY})*(1-\text{PREVALENCE})}$
-
----
+$\\$
 
 #### Likelihood ratios:
 
@@ -170,33 +175,33 @@ $\text{PPV} = p(D|+) = \frac{p(+|D)p(D)}{p(+|D)p(D)+p(+|D^c)p(D^c)}$
 
 $\text{FDR} = p(D^c|+) = \frac{p(+|D^c)p(D^c)}{p(+|D)p(D)+p(+|D^c)p(D^c)}$
 
----
+$\\$
 
-$\rightarrow \frac{p(D|+)}{p(D^c|+)} = \frac{p(+|D)}{p(+|D^c)} * \frac{P(D)}{P(D^c)}$
+Then:
 
-$\equiv \text{POST TEST ODDS} = \text{DLR}_{+} * \text{PRE TEST ODDS}$
+$\rightarrow \frac{p(D|+)}{p(D^c|+)} = \frac{p(+|D)}{p(+|D^c)} * \frac{P(D)}{P(D^c)} \Rightarrow \text{POST TEST ODDS} = \text{DLR}_{+} * \text{PRE TEST ODDS} \Rightarrow \text{DLR}_{+} = \frac{\text{POST TEST ODDS}}{\text{PRE TEST ODDS}}$
 
-$\Rightarrow \text{DLR}_{+} = \frac{\text{POST TEST ODDS}}{\text{PRE TEST ODDS}}$
+$\\$
 
 $\text{DLR}_{+}$ relates the increase in the odds of the disease after a positive test result to the odds of disease prior to the test.
 
----
+$\\$
 
 Similarly:
 
-$\rightarrow \frac{p(D|-)}{p(D^c|-)} = \frac{p(-|D)}{p(-|D^c)} * \frac{P(D)}{P(D^c)}$
+$\rightarrow \frac{p(D|-)}{p(D^c|-)} = \frac{p(-|D)}{p(-|D^c)} * \frac{P(D)}{P(D^c)} \Rightarrow \text{POST TEST ODDS} = \text{DLR}_{-} * \text{PRE TEST ODDS} \Rightarrow \text{DLR}_{-} = \frac{\text{POST TEST ODDS}}{\text{PRE TEST ODDS}}$
 
-$\equiv \text{POST TEST ODDS} = \text{DLR}_{-} * \text{PRE TEST ODDS}$ 
-
-$\Rightarrow \text{DLR}_{-} = \frac{\text{POST TEST ODDS}}{\text{PRE TEST ODDS}}$
+$\\$
 
 $\text{DLR}_{-}$ relates the decrease in the odds of the disease after a negative test result to the odds of disease prior to the test.
 
-
+$\\$
 
 ---
 
-##### <a name=FPR_down></a>[Type I and II errors](http://es.wikipedia.org/wiki/Errores_de_tipo_I_y_de_tipo_II)
+#### <a name=FPR_down></a>[Type I and II errors](http://es.wikipedia.org/wiki/Errores_de_tipo_I_y_de_tipo_II)
+
+---
 
 The **FPR** is a **Type I error** ($\alpha$ type error): 
 
@@ -213,11 +218,11 @@ This happens because the two populations ('*normal state*' = condition negative 
 [back](#back)
 
 <a name="FNR_down"></a>
----
+$\\$
 
 ![errors](pics/304px-beta-Fehler.png)
 
----
+$\\$
 
 The **FNR** is a **Type II error** ($\beta$ type error):
 

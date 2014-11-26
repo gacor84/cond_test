@@ -102,9 +102,14 @@ $\\$
 ![prob diagram](pics/bayes.png)
 $\\$
 
-$\text{SENSITIVITY}:p(+|D)=\frac{p(+ \cap D)}{p(D)}$, $\ \text{PPV}:p(D|+)=\frac{p(+ \cap D)}{p(+)}$
+$\text{SENSITIVITY}:p(+|D)=\frac{p(+ \cap D)}{p(D)}$
 
-$\rightarrow p(+ \cap D)=p(+|D)p(D)=p(D|+)p(+) \ \equiv \ \text{TP}=\text{SENSITIVITY}*\text{PREVALENCE}=\text{PPV}*\text{(TP+FP)}$
+$\text{PPV}:p(D|+)=\frac{p(+ \cap D)}{p(+)}$
+
+$\\$
+Then:
+
+$\rightarrow p(+ \cap D)=p(+|D)p(D)=p(D|+)p(+) \Rightarrow \text{TP}=\text{SENSITIVITY}*\text{PREVALENCE}=\text{PPV}*\text{(TP+FP)}$
 
 ### Bayes' rule:
 
@@ -114,30 +119,38 @@ $\\$
 Bayes' theorem: 
 
 $p(B|A)=\frac{p(A|B)p(B)}{p(A)}$
-$\\$
 
+$\\$
 Then:
 
 $\rightarrow p(A)=p(A|B)p(B)+p(A|B^c)p(B^c)$
 $\\$
 
 Demonstration:
+
+$p(+)=p(+|D)p(D)+p(+|D^c)p(D^c)=p(+ \cap D)+p(+ \cap D^c) \Rightarrow \text{TP+FP}=\text{TP+FP}$
 $\\$
 
-$p(+)=p(+|D)p(D)+p(+|D^c)p(D^c)=p(+ \cap D)+p(+ \cap D^c)$ $\rightarrow \text{TP+FP}=\text{TP+FP}$
+Application:
 
-$p(D|+)=\frac{p(+|D)p(D)}{p(+|D)p(D)+p(+|D^c)p(D^c)} \ \equiv \ \text{PPV}=\frac{\text{SENSITIVITY*PREVALENCE}}{\text{SENSITIVITY*PREVALENCE}+(1-\text{SPECIFICITY})*(1-\text{PREVALENCE})}$
+$p(D|+)=\frac{p(+|D)p(D)}{p(+|D)p(D)+p(+|D^c)p(D^c)} \Rightarrow \text{PPV}=\frac{\text{SENSITIVITY*PREVALENCE}}{\text{SENSITIVITY*PREVALENCE}+(1-\text{SPECIFICITY})*(1-\text{PREVALENCE})}$
+$\\$
 
-\pagebreak
-
-### Likelihood ratios:
+#### Likelihood ratios:
+$\\$
 
 Bayes' rule:
 
-$\text{PPV} = p(D|+) = \frac{p(+|D)p(D)}{p(+|D)p(D)+p(+|D^c)p(D^c)}$, $\ \text{FDR} = p(D^c|+) = \frac{p(+|D^c)p(D^c)}{p(+|D)p(D)+p(+|D^c)p(D^c)}$
+$\text{PPV} = p(D|+) = \frac{p(+|D)p(D)}{p(+|D)p(D)+p(+|D^c)p(D^c)}$
+
+$\text{FDR} = p(D^c|+) = \frac{p(+|D^c)p(D^c)}{p(+|D)p(D)+p(+|D^c)p(D^c)}$
 $\\$
 
-$\rightarrow \frac{p(D|+)}{p(D^c|+)} = \frac{p(+|D)}{p(+|D^c)} * \frac{P(D)}{P(D^c)} \ \equiv \ \text{POST TEST ODDS} = \text{DLR}_{+} * \text{PRE TEST ODDS} \Rightarrow$
+Then:
+
+$\rightarrow \frac{p(D|+)}{p(D^c|+)} = \frac{p(+|D)}{p(+|D^c)} * \frac{P(D)}{P(D^c)}$
+
+$\Rightarrow \text{POST TEST ODDS} = \text{DLR}_{+} * \text{PRE TEST ODDS}$
 
 $\Rightarrow \text{DLR}_{+} = \frac{\text{POST TEST ODDS}}{\text{PRE TEST ODDS}}$
 $\\$
@@ -146,14 +159,17 @@ $\text{DLR}_{+}$ relates the increase in the odds of the disease after a positiv
 $\\$
 
 Similarly:
-$\\$
 
-$\rightarrow \frac{p(D|-)}{p(D^c|-)} = \frac{p(-|D)}{p(-|D^c)} * \frac{P(D)}{P(D^c)} \ \equiv \ \text{POST TEST ODDS} = \text{DLR}_{-} * \text{PRE TEST ODDS} \Rightarrow$ 
+$\rightarrow \frac{p(D|-)}{p(D^c|-)} = \frac{p(-|D)}{p(-|D^c)} * \frac{P(D)}{P(D^c)}$ 
+
+$\Rightarrow \text{POST TEST ODDS} = \text{DLR}_{-} * \text{PRE TEST ODDS}$
 
 $\Rightarrow \text{DLR}_{-} = \frac{\text{POST TEST ODDS}}{\text{PRE TEST ODDS}}$
 $\\$
 
 $\text{DLR}_{-}$ relates the decrease in the odds of the disease after a negative test result to the odds of disease prior to the test.
+
+$\\$
 
 \pagebreak
 
