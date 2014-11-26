@@ -2,7 +2,7 @@
 title: "Condition testing"
 author: "Gaëlle Cordier"
 date: "11/11/2014"
-output: pdf_document
+output: html_document
 ---
 
 ---
@@ -217,7 +217,7 @@ This happens because the two populations ('*normal state*' = condition negative 
 <a name="FNR_down"></a>
 $\\$
 
-![errors](pics/304px-beta-Fehler.png)
+![errors](pics/errors.png)
 
 $\\$
 
