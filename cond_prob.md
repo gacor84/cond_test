@@ -1,8 +1,8 @@
 ---
-title: 'Condition testing'
+title: "Condition testing"
 author: "Gaëlle Cordier"
 date: "11/11/2014"
-output: html_document
+output: pdf_document
 ---
 
 ---
@@ -15,7 +15,7 @@ output: html_document
 
 ### In terms of probabilities:
 
-![prob diagram](pics/img015.gif)
+![prob diagram](pics/img015.png)
 
 ---
 
@@ -166,17 +166,17 @@ $\equiv \text{PPV}=\frac{\text{SENSITIVITY*PREVALENCE}}{\text{SENSITIVITY*PREVAL
 
 Bayes' rule:
 
-$\text{PPV} = p(D|+)=\frac{p(+|D)p(D)}{p(+|D)p(D)+p(+|D^c)p(D^c)}$
+$\text{PPV} = p(D|+) = \frac{p(+|D)p(D)}{p(+|D)p(D)+p(+|D^c)p(D^c)}$
 
-$\text{FDR} = p(D^c|+)=\frac{p(+|D^c)p(D^c)}{p(+|D)p(D)+p(+|D^c)p(D^c)}$
+$\text{FDR} = p(D^c|+) = \frac{p(+|D^c)p(D^c)}{p(+|D)p(D)+p(+|D^c)p(D^c)}$
 
 ---
 
-$\rightarrow \frac{p(D|+)}{p(D^c|+)}=\frac{p(+|D)}{p(+|D^c)} * \frac{P(D)}{P(D^c)}$
+$\rightarrow \frac{p(D|+)}{p(D^c|+)} = \frac{p(+|D)}{p(+|D^c)} * \frac{P(D)}{P(D^c)}$
 
-$\equiv \text{POST TEST ODDS} = \text{DLR_{+}} \ *  \text{PRE TEST ODDS}$
+$\equiv \text{POST TEST ODDS} = \text{DLR_{+}} * \text{PRE TEST ODDS}$
 
-$\Rightarrow \text{DLR_{+}}=\frac{\text{POST TEST ODDS}}{\text{PRE TEST ODDS}}$
+$\Rightarrow \text{DLR_{+}} = \frac{\text{POST TEST ODDS}}{\text{PRE TEST ODDS}}$
 
 $\text{DLR_{+}}$ relates the increase in the odds of the disease after a positive test result to the odds of disease prior to the test.
 
@@ -184,11 +184,11 @@ $\text{DLR_{+}}$ relates the increase in the odds of the disease after a positiv
 
 Similarly:
 
-$\rightarrow \frac{p(D|-)}{p(D^c|-)}=\frac{p(-|D)}{p(-|D^c)} * \frac{P(D)}{P(D^c)}$
+$\rightarrow \frac{p(D|-)}{p(D^c|-)} = \frac{p(-|D)}{p(-|D^c)} * \frac{P(D)}{P(D^c)}$
 
-$\equiv \text{POST TEST ODDS} = \text{DLR_{-}} \ *  \text{PRE TEST ODDS}$ 
+$\equiv \text{POST TEST ODDS} = \text{DLR_{-}} * \text{PRE TEST ODDS}$ 
 
-$\Rightarrow \text{DLR_{+}}=\frac{\text{POST TEST ODDS}}{\text{PRE TEST ODDS}}$
+$\Rightarrow \text{DLR_{+}} = \frac{\text{POST TEST ODDS}}{\text{PRE TEST ODDS}}$
 
 $\text{DLR_{-}}$ relates the decrease in the odds of the disease after a negative test result to the odds of disease prior to the test.
 
@@ -256,5 +256,5 @@ sessionInfo()
 ## 
 ## loaded via a namespace (and not attached):
 ## [1] digest_0.6.3     evaluate_0.5.5   formatR_1.0      htmltools_0.2.6 
-## [5] rmarkdown_0.3.10 stringr_0.6.2    tools_3.1.2      yaml_2.1.13
+## [5] rmarkdown_0.3.12 stringr_0.6.2    tools_3.1.2      yaml_2.1.13
 ```
