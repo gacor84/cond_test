@@ -189,7 +189,7 @@ This happens because the two populations ('*normal state*' = condition negative 
 
 - the smaller the significance level, the more we are assuring the integrity of the '*altered state*' population: we minimize false positives at the expense of minimizing true positives (smaller $\alpha$ $\rightarrow$ less Type I error)
 
-![errors](pics/304px-beta-Fehler.png)
+![errors](pics/errors.png)
 
 The **FNR** is a **Type II error** ($\beta$ type error): 
 
